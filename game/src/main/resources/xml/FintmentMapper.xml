@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.xc.mapper.FintmentMapper">
+    <!--查询全都-->
+    <select id="queryFintmentList" resultType="net.xc.pojo.HouseFintment">
+        select * from house_fintment
+    </select>
+
+    <!--查询是否存在-->
+    <select id="queryWarByid" resultType="java.lang.Integer">
+        select count(1) from warehouse where user_id =#{userId} and fintment_id=#{fintmentId};
+    </select>
+    <!--修改-->
+    <update id="updateWarBynum" >
+         update warehouse set num=#{num } +num
+         where user_id=#{userId} and fintment_id=#{fintmentId};
+    </update>
+    <!--添加-->
+    <insert id="addFintment" >
+        insert into warehouse
+        value (default ,#{userId},#{fintmentId},#{num })
+    </insert>
+</mapper>

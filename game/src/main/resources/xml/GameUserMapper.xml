@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.xc.mapper.GameUserMapper">
+    <select id="count_row" resultType="Integer" parameterType="String">
+        SELECT COUNT(1)
+         FROM `game_user` WHERE `uuid` = #{uuid}
+    </select>
+    <select id="listByRanking" resultType="GameUser">
+      SELECT  `username` ,`money`
+      FROM `game_user` ORDER BY `money`
+    </select>
+</mapper>

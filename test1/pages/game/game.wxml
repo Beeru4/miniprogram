@@ -1,0 +1,167 @@
+<view class="container">
+  <!--头部-->
+  <view class='header'>
+    <view>用户头像</view>
+    <view>
+    天数:
+    <text id="day">{{nowday}}/{{allday}}</text>
+    </view>
+    <view>
+    房屋:
+    <text id="hourse">{{yishou}}/{{shenyu}}</text>
+    </view>
+  </view>
+
+  <!--主体-->
+  <view class='body'>
+    <!--地点按钮及历史事件按钮等-->
+    <view class="body_left">
+      <button style='background-color:rgb(150, 200, 100)' bindtap='shoulou'>售楼中心</button>
+      <button style='background-color:rgb(150, 200, 100)' bindtap='fuwu'>服务市场</button>
+      <button style='background-color:rgb(150, 200, 100)' bindtap='cangku'>仓库</button>
+      <button style='background-color:rgb(170, 200, 100)' bindtap='lishi'>历史事件</button>
+    </view>
+    <!--用户点击的按钮后具体的块-->
+    <view class="body_right">
+      <!-- 售楼中心块 -->
+      <view style='display:{{shoulouBlock}}'>
+        <!-- 地点才选择 -->
+        <view>
+          <text>请选择要去的地点（每次消耗5体力值）:\n\n</text>
+          <text style='margin:15rpx' data-didianname='daxuecheng' bindtap='qiehuandidian'>大学城</text>
+          <text style='margin:15rpx' data-didianname='jinrongzhongxin' bindtap='qiehuandidian'>金融中心区</text>
+          <text style='margin:15rpx' data-didianname='rencaichuangyeyuan' bindtap='qiehuandidian'>人才创业中心</text>
+          <text>\n\n</text>
+          <text style='margin:15rpx' data-didianname='renmingongyuan' bindtap='qiehuandidian'>人民公园</text>
+          <text style='margin:15rpx' data-didianname='dawangzhongxincun' bindtap='qiehuandidian'>大旺城中村</text>
+        </view>
+        <!-- 该地的的房屋信息块 -->
+        <view class="hourseType">
+          当前地点：{{nowDidian}}
+          <block wx:for="{{nowHourse}}" wx:for-item="h">
+            <view style='padding: 30rpx 20rpx' data-typeid='{{h.houseType.id}}' data-typename='{{h.houseType.typeName}}' data-price='{{h.price}}' bindtap='xuanzhongfang'>
+            房屋类型：{{h.houseType.typeName}}\t\t\t售卖价格：{{h.price}}\n
+            市场均价：{{h.prices}}\t\t\t市场景气度：{{h.goodDegrees}}
+            </view>
+          </block>
+        </view>
+        <view>
+          <text>当前房屋：{{nowTypename}}\n</text>
+          <view  style='display:{{buyHidden}}'>
+          <text>请输入要购买数量：\n</text>
+          <input type='number' value='{{num}}' style='background-color:#fff;width:60%;display:inline-block' bindblur='querenHourseNum'>
+          </input>
+          <button style='background-color:#fff;font-size:30rpx;height:60rpx;width:30%;display:inline-block'
+          bindtap='buyHourse'>
+          确定</button>
+          </view>
+        </view>
+      </view>
+
+      <!-- 服务市场块 -->
+      <view style='display:{{fuwuBlock}}'>
+      服务市场
+      </view>
+
+      <!-- 仓库块 -->
+      <view style='display:{{cangkuBlock}}'>
+        <!-- 仓库三个模块切换按钮 -->
+        <view style='display:flex;flex-direction: row;margin-top:10rpx'>
+          <button style='width:30%;font-size: 30rpx;'>未出租</button>
+          <button style='width:30%;font-size: 30rpx;'>已出租</button>
+          <button style='width:30%;font-size: 30rpx;'>服务</button>
+        </view>
+        <!-- 未出租 -->
+        <view style='display:{{cangkuWei}}'>
+        </view>
+        <!-- 已出租 -->
+        <view style='display:{{cangkuYi}}'>
+        </view>
+        <!-- 服务 -->
+        <view style='display:{{cangkuFuwu}}'>
+        </view>
+      </view>
+
+      <!-- 历史块 -->
+      <view style='display:{{lishiBlock}}'>
+      历史事件
+      </view>
+    </view>
+  </view>
+
+  <!--尾部-->
+  <view class='footer'>
+    <!--尾部上半块-->
+    <view class="up">
+      <!--用户属性块-->
+      <view class="userattr" style='width:50%'>
+        <view>
+          <text>现金：</text>
+          <text>{{cash}}</text>
+        </view>
+        <view>
+          <text>贷款额：</text>
+          <text>{{jiekuan}}/50000</text>
+        </view>
+        <view>
+          <text>代收款/待付款：</text>
+          <text>{{daishou}}/{{daifu}}</text>
+        </view>
+        <view>
+          <text>人品值：</text>
+          <text>{{renpin}}/100</text>
+        </view>
+        <view>
+          <text>体力值：</text>
+          <text>{{tili}}/100</text>
+        </view>
+      </view>
+      <!--下一天按钮 及特殊地点按钮-->
+      <view>
+        <view>
+          <!--增加用户属性的特殊地点-->
+          <view class="bs-example">
+            <button id="bank" >
+              银行
+            </button>
+            <button id="massage" >
+              按摩院
+            </button>
+            <button id="guanyin" >
+              观音寺
+            </button>
+          </view>
+                        <!--进入下一天的按钮-->
+          <button bindtap="nextday" data='aaaaa' class="btn btn-info btn-lg">进入下一天</button>
+        </view> 
+      </view> 
+    </view> 
+
+    <!--尾部下半块-->
+    <view class="down">
+      <!--提示轮播块-->
+      <swiper class="swiper_container" vertical="true" autoplay="true" circular="true"        interval="3000"  style=" height: 50rpx">
+        <block wx:for="{{msgList}}">
+          <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
+            <swiper-item>
+              <view class="swiper_item">{{item.title}}</view>
+            </swiper-item>
+          </navigator>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  
+<!--弹窗-->
+<view class="modal-hide" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <!-- 提示 -->
+  <view class="modal-title">{{error}}</view>
+  <!-- 按钮 -->
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+  </view>
+</view>
+   
+</view>

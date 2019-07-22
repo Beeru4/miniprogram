@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="bodytext" style='font-size: 60rpx;'>
+    卖房救阿伟
+  </view>
+  <view class="footbtn">
+    <button bindtouchstart='startGame' style='background-color:rgb(175, 255, 71)'>开始游戏</button>
+    <button>全球排行</button>
+    <button>玩法简介</button>
+  </view>
+</view>

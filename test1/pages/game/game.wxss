@@ -1,0 +1,186 @@
+/*gamecss*/
+.container{
+  font-size: 30rpx;
+}
+
+.header{
+  background-color: rgb(199, 199, 255);
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20rpx;
+  width: 100%;
+}
+.header view{
+  width: 30%;
+}
+.header view:nth-of-type(1){
+  width: 40%;
+}
+
+
+.body{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.body_left{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.body_left button{
+  font-size: 35rpx;
+  width: 90%;
+  margin:15rpx 10rpx; 
+}
+
+.body_right{
+  width: 70%;
+  height: 85%;
+  position: absolute; 
+  top: 76rpx;
+  right: 0;
+  background-color: rgb(175, 194, 255);
+}
+
+.hourseType{
+  margin-top: 30rpx;
+  padding-top: 30rpx;
+  height: 320rpx;
+  background-color: #95deff;
+}
+
+
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(151, 195, 252);
+}
+
+.up{
+  display: flex;
+  flex-direction: row;
+}
+
+.down{
+  background-color: rgb(212, 231, 255);
+  height: 50rpx;
+  font-size: 35rpx;
+}
+
+
+.userattr view{
+  height: 60rpx;
+  padding-left: 20rpx;
+}
+
+.footer button{
+  width: 350rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  background-color: rgb(175, 255, 71);
+  margin: 10rpx auto;
+}
+
+.bs-example button{
+  width: 250rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+  background-color: rgb(70, 70, 87);
+  color: #fff;
+}
+
+
+
+
+.modal-hide {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 105rpx;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  border: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+}
